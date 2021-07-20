@@ -46,7 +46,7 @@ public class MLGRush extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage("§e此插件由LocyDragon制作(https://www.mcbbs.net/?2149109)");
         Bukkit.getConsoleSender().sendMessage("§aMC_xiafeng_233魔改(https://space.bilibili.com/396930389)");
         Bukkit.getConsoleSender().sendMessage("§8§d夏枫：这个版本因为国内很少人人发出来，能找到的只有这个， L wklqn kh lv uhdoob d odcb grj dqg wkh Mdqxdub EXJ zdv vwloo wkhuh zkhq L grzqordghg lw lq Mxob ,BUG我基本都修了也加了很多东西，希望你喜欢我魔改的作品");
-        Bukkit.getConsoleSender().sendMessage("插件遵循GPLv3协议进行开源  : https://gitee.com/glxiafeng233/mlgrush-v-e1.0");
+        Bukkit.getConsoleSender().sendMessage("§a插件遵循GPLv3协议进行开源  : https://gitee.com/glxiafeng233/mlgrush-v-e1.0");
         Bukkit.getConsoleSender().sendMessage("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄");
         saveDefaultConfig();
         Bukkit.getPluginCommand("rush").setExecutor(new RushCmdHandler());
