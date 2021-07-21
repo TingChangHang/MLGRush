@@ -107,7 +107,6 @@ public class PlayerUseLobbyItem implements Listener {
                 String name = ChatColor
                         .stripColor(e.getCurrentItem().getItemMeta().getDisplayName());
                 String[] amounts = name.replace("V.S.", "@").split("@");
-                System.out.println(amounts);
                 Player playerA = Bukkit.getPlayer(amounts[0].trim());
                 Player playerB = Bukkit.getPlayer(amounts[1].trim());
                 if (!playerA.isOnline() || !playerB.isOnline()) {
