@@ -43,7 +43,7 @@ public class BedScorer implements Listener {
                     points++;
                     player.area.b_Score = points;
                     if (points >= 10) {
-                    	Bukkit.broadcastMessage(PlaceholderAPI.setPlaceholders((Player) player, SettingManager.lineformessage$WinB));
+                    	Bukkit.broadcastMessage(PlaceholderAPI.setPlaceholders((Player) player.target, SettingManager.lineformessage$WinB));
                         InGame.quit(e.getPlayer());
                     }
                     return;
@@ -55,7 +55,7 @@ public class BedScorer implements Listener {
                     points++;
                     player.area.a_Score = points;
                     if (points >= 10) {
-                    	Bukkit.broadcastMessage(PlaceholderAPI.setPlaceholders((Player) player, SettingManager.lineformessage$WinA));
+                    	Bukkit.broadcastMessage(PlaceholderAPI.setPlaceholders((Player) player.target, SettingManager.lineformessage$WinA));
                         InGame.quit(e.getPlayer());
                     }
                     return;

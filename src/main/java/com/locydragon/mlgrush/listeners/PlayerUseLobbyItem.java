@@ -57,7 +57,7 @@ public class PlayerUseLobbyItem implements Listener {
                         a = b;
                     }
                     gui.setItem(i, new ItemBuilder(Material.BED)
-                            .setDisplayName(PlaceholderAPI.setPlaceholders(e.getPlayer(), SettingManager.lineforItemName$SpecGuiArenaItem))
+                            .setDisplayName(PlaceholderAPI.setPlaceholders(area.A, SettingManager.lineforItemName$SpecGuiArenaItem))
                             .addEnchantment(Enchantment.ARROW_FIRE, 1)
                             .setAmount(a).build());
                     i++;
@@ -66,18 +66,18 @@ public class PlayerUseLobbyItem implements Listener {
             } else if (e.getPlayer().getItemInHand().equals(RushInstances.MATCHING_ITEM)
                     && (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK)) {
                 if (!AreaLoader.hasEmptyArea()) {
-                    e.getPlayer().sendMessage(PlaceholderAPI.setPlaceholders(e.getPlayer(), SettingManager.lineformessage$RoomFull));
+                    e.getPlayer().sendMessage(PlaceholderAPI.setPlaceholders(null, SettingManager.lineformessage$RoomFull));
                     return;
                 }
-                e.getPlayer().sendMessage(PlaceholderAPI.setPlaceholders(e.getPlayer(), SettingManager.lineformessage$InQueue));
+                e.getPlayer().sendMessage(PlaceholderAPI.setPlaceholders(null, SettingManager.lineformessage$InQueue));
                 TeamMatching.addWaiting(e.getPlayer());
-                e.getPlayer().sendMessage(PlaceholderAPI.setPlaceholders(e.getPlayer(), SettingManager.lineformessage$InQueuePlayerSize));
+                e.getPlayer().sendMessage(PlaceholderAPI.setPlaceholders(null, SettingManager.lineformessage$InQueuePlayerSize));
                 e.getPlayer().getInventory().clear();
                 e.getPlayer().getInventory().setItem(8, RushInstances.QUIT);
                 e.getPlayer().updateInventory();
             } else if (e.getPlayer().getItemInHand().equals(RushInstances.QUIT)) {
                 TeamMatching.removeWaiting(e.getPlayer());
-                e.getPlayer().sendMessage(PlaceholderAPI.setPlaceholders(e.getPlayer(), SettingManager.lineformessage$ExitQueue));
+                e.getPlayer().sendMessage(PlaceholderAPI.setPlaceholders(null, SettingManager.lineformessage$ExitQueue));
                 e.getPlayer().getInventory().clear();
                 e.getPlayer().getInventory().setItem(0, RushInstances.MATCHING_ITEM);
                 e.getPlayer().getInventory().setItem(4, RushInstances.CHANGEINV_ITEM);
@@ -99,7 +99,7 @@ public class PlayerUseLobbyItem implements Listener {
 
     @EventHandler
     public void onClick(InventoryClickEvent e) {
-        if (e.getInventory().getTitle().equals(SettingManager.lineforGui$Spec)) {
+        if (e.getInventory().getTitle().equals(PlaceholderAPI.setPlaceholders((Player) e.getWhoClicked(), SettingManager.lineforGui$Spec))) {
             e.setCancelled(true);
             if (e.getCurrentItem() != null && e.getCurrentItem().getType() == Material.BED
             && e.getCurrentItem().getItemMeta().hasDisplayName() && e.getCurrentItem().getItemMeta()
@@ -107,27 +107,28 @@ public class PlayerUseLobbyItem implements Listener {
                 String name = ChatColor
                         .stripColor(e.getCurrentItem().getItemMeta().getDisplayName());
                 String[] amounts = name.replace("V.S.", "@").split("@");
+                System.out.println(amounts);
                 Player playerA = Bukkit.getPlayer(amounts[0].trim());
                 Player playerB = Bukkit.getPlayer(amounts[1].trim());
                 if (!playerA.isOnline() || !playerB.isOnline()) {
-                    e.getWhoClicked().sendMessage(SettingManager.lineformessage$MathingEnded);
+                    e.getWhoClicked().sendMessage(PlaceholderAPI.setPlaceholders( null,SettingManager.lineformessage$MathingEnded));
                     return;
                 }
                 if (!InGame.isPlaying(playerA) || !InGame.isPlaying(playerB)) {
-                    e.getWhoClicked().sendMessage(SettingManager.lineformessage$MathingEnded);
+                    e.getWhoClicked().sendMessage(PlaceholderAPI.setPlaceholders( null,SettingManager.lineformessage$MathingEnded));
                     return;
                 }
                 GameArea areaA = InGame.get(playerA).area;
                 GameArea areaB = InGame.get(playerB).area;
                 if (!areaA.areaName.equals(areaB.areaName)) {
-                    e.getWhoClicked().sendMessage(SettingManager.lineformessage$MathingEnded);
+                    e.getWhoClicked().sendMessage(PlaceholderAPI.setPlaceholders( null,SettingManager.lineformessage$MathingEnded));
                     return;
                 }
                 e.getWhoClicked().teleport(areaA.MONITOR);
                 Bukkit.getScheduler().runTaskLater(MLGRush.instance, () -> {
                     e.getWhoClicked().setGameMode(GameMode.SPECTATOR);
                 }, 10);
-                e.getWhoClicked().sendMessage(SettingManager.lineformessage$ToBeSpecer);
+                e.getWhoClicked().sendMessage(PlaceholderAPI.setPlaceholders((Player) e.getWhoClicked(), SettingManager.lineformessage$ToBeSpecer));
             }
         }
     }

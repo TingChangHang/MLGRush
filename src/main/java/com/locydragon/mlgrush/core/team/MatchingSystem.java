@@ -59,7 +59,7 @@ public class MatchingSystem extends BukkitRunnable {
                 targetA.updateInventory();
                 targetB.getInventory().clear();
                 targetB.updateInventory();
-                Bukkit.broadcastMessage(PlaceholderAPI.setPlaceholders(null, SettingManager.lineformessage$NoticeStart));
+                Bukkit.broadcastMessage(PlaceholderAPI.setPlaceholders(targetA, SettingManager.lineformessage$NoticeStart));
                 targetA.setCustomName(PlaceholderAPI.setPlaceholders(targetA,SettingManager.lineforTeamName$TeamNameA));
                 targetB.setCustomName(PlaceholderAPI.setPlaceholders(targetB,SettingManager.lineforTeamName$TeamNameB));
             }

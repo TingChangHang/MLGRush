@@ -30,7 +30,7 @@ public class RushInstances {
     public static ItemStack AXE = null;
 
     /**
-     * 预加载常量(在onEnable被调用)
+     *	 预加载常量(在onEnable被调用)
      */
 
     public static void preLoad() {

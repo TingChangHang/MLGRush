@@ -101,4 +101,8 @@ public class InGame {
             targetB.setCustomName(targetB.getUniqueId().toString());
         }
     }
+
+	public static GamePlayer get(@NonNull String instance) {
+        return gamePlayerHashMap.get(instance);
+    }
 }

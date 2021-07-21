@@ -91,7 +91,6 @@ public class SettingManager {
 			setting = YamlConfiguration.loadConfiguration(settingfile);
 			for (Field field : SettingManager.class.getDeclaredFields()) {
 				String name = field.getName();
-				System.out.println(field.getName());
 				if(name.startsWith("linefor")) {
 					setting.set("message." + name.replace("linefor", "").replace("$", "."),field.get(this).toString());
 				}
