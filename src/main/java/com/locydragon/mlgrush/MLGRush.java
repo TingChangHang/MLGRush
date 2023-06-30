@@ -1,6 +1,7 @@
 package com.locydragon.mlgrush;
 
 import com.locydragon.mlgrush.commands.CpsHandler;
+import com.locydragon.mlgrush.commands.LeaveCmdHandler;
 import com.locydragon.mlgrush.commands.RushCmdHandler;
 import com.locydragon.mlgrush.core.AreaLoader;
 import com.locydragon.mlgrush.core.RushInstances;
@@ -66,6 +67,7 @@ public class MLGRush extends JavaPlugin {
         	Bukkit.getPluginManager().disablePlugin(instance);
         }
         Bukkit.getPluginCommand("cps").setExecutor(new CpsHandler());
+        Bukkit.getPluginCommand("leave").setExecutor(new LeaveCmdHandler());
         MLGRush.serverName = this.getConfig().getString("ServerName", "MLGRush");
         MLGRush.ip = this.getConfig().getString("ip", "localhost:25565");
         RushInstances.APPLE_PREFIX = "§7[§d§l§m§n☆" + serverName + "☆§7] ";

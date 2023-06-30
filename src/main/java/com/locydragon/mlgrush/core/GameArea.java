@@ -25,7 +25,7 @@ public class GameArea {
     public BedBlock bedBlock_B = new BedBlock();
     public String areaName;
     public boolean isPlaying = false;
-    public Player A = null;;
+    public Player A = null;
     public Player B = null;
     public List<Location> blockSetLists = new ArrayList<>();
     public int a_Score = 0;

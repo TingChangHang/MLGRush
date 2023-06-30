@@ -48,7 +48,8 @@ public class SettingManager {
             "/10 §7分 | §a§l" + "%RUSH_PLAYERB%"
             + ": §b" + "%RUSH_SCOREB%" + "/10 §7分 §4§l←";
 	
-	
+	public static String lineformessage$BedBreakMotd = "§e{PLAYERNAME}在本局获胜！";
+	public static String lineformessage$LeaveGameMessage = "%RUSH_PERFIX%" + "你离开了游戏！";
 	public static String lineforTeamName$TeamNameA = "§f[§c§l红队§f] §c" + "%RUSH_PLAYERA%";
 	public static String lineforTeamName$TeamNameB = "§f[§a§l绿队§f] §a" + "%RUSH_PLAYERB%";
 	

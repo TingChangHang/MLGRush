@@ -1,9 +1,10 @@
 name: MLGRush
 main: com.locydragon.mlgrush.MLGRush
 version: E1.0.0
-author: [LocyDragon MC_xiafeng_233]
+author: [LocyDragon MC_xiafeng_233 TingChangHang]
 depend: [PlaceholderAPI]
 softdepend: [Multiverse-Core]
 commands:
   rush:
   cps:
+  leave:
