@@ -27,5 +27,6 @@ public class ListenerRegister {
         Bukkit.getPluginManager().registerEvents(new AllowChange(), MLGRush.instance);
         Bukkit.getPluginManager().registerEvents(new ChangeInvListener(), MLGRush.instance);
         Bukkit.getPluginManager().registerEvents(new StopBed(), MLGRush.instance);
+        Bukkit.getPluginManager().registerEvents(new SendTitle(), MLGRush.instance);
     }
 }

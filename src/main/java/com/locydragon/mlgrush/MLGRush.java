@@ -10,6 +10,7 @@ import com.locydragon.mlgrush.handlers.BroadCastHandler;
 import com.locydragon.mlgrush.handlers.ConfigLoader;
 import com.locydragon.mlgrush.handlers.ListenerRegister;
 import com.locydragon.mlgrush.listeners.CPSListener;
+import com.locydragon.mlgrush.listeners.SendTitle;
 import com.locydragon.mlgrush.mcxiafeng.PaPiApi;
 import com.locydragon.mlgrush.mcxiafeng.SettingManager;
 
@@ -59,6 +60,7 @@ public class MLGRush extends JavaPlugin {
         AreaLoader.load();
         new MatchingSystem().runTaskTimer(this, 0, 20 * 3);
         new BroadCastHandler().runTaskTimer(this, 0, 13);
+        SendTitle.getAllClass();
         Bukkit.getPluginManager().registerEvents(cps, MLGRush.instance);
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
         	new PaPiApi().hook();
